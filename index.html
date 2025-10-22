@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Home — Staff Attendance</title>
+    <style>
+        :root{--bg:#f7f8fa;--card:#fff;--accent:#0b79d0;--muted:#666}
+        body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;background:var(--bg);color:#222}
+        header{background:var(--card);box-shadow:0 1px 3px rgba(0,0,0,.06);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between}
+        nav a{margin-left:1rem;color:var(--accent);text-decoration:none;font-weight:600}
+        .container{max-width:1000px;margin:2rem auto;padding:0 1rem}
+        .hero{background:var(--card);padding:2rem;border-radius:8px;box-shadow:0 6px 18px rgba(10,10,10,.04)}
+        h1{margin:0 0 .5rem 0}
+        p.lead{color:var(--muted);margin:0 0 1rem}
+        .grid{display:grid;grid-template-columns:1fr 300px;gap:1rem;margin-top:1rem}
+        .card{background:var(--card);padding:1rem;border-radius:8px;box-shadow:0 6px 18px rgba(10,10,10,.04)}
+        footer{text-align:center;color:var(--muted);padding:2rem 0;font-size:.9rem}
+        @media (max-width:800px){.grid{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+    <header>
+        <div style="display:flex;align-items:center;gap:.75rem">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden style="display:block">
+                <rect width="24" height="24" rx="4" fill="#0b79d0"></rect>
+                <path d="M7 12h10" stroke="#fff" stroke-width="1.5" stroke-linecap="round"></path>
+            </svg>
+            <strong>Staff Attendance Site Bolga</strong>
+        </div>
+        <nav aria-label="Main navigation">
+            <ul style="list-style:none;margin:0;padding:0;display:flex;gap:1rem;align-items:center;">
+                <li><a href="register.php">Register as staff</a></li>
+                <li>
+                    <a href="admin_register.php" id="admin-link"
+                       onclick="event.preventDefault(); const pwd = prompt('Enter admin password:'); if (pwd === '1234567890') { window.location.href = this.href; } else if (pwd !== null) { alert('Incorrect password'); }">
+                        Register as admin
+                    </a>
+                </li>
+                <li><a href="login.php">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section
+            class="hero"
+            style="position:relative; padding:2.5rem; border-radius:8px; overflow:hidden;
+                         background-image: url('nnn.jpg'); background-size:cover; background-position:center; color:#fff;">
+            <!-- Overlay -->
+            <div style="position:absolute; inset:0;
+                                    background: linear-gradient(rgba(10,10,10,0.45), rgba(10,10,10,0.45));
+                                    pointer-events:none;"></div>
+
+            <!-- Content (above overlay) -->
+            <div style="position:relative; z-index:1;">
+                <h1>Welcome To Upper East Regional Hospital Staff Attendance Site</h1>
+                <p class="lead" style="color:rgba(255,255,255,0.9); margin-bottom:1rem;">
+                    Use this page to mark your presence quickly and securely from your comfortable zone.
+                </p>
+
+                <div class="grid">
+                    <div>
+                        <div class="card" style="background: rgba(255,255,255,0.95); color:#111;">
+                            <h2>Getting started</h2>
+                            <p>Use this page to make sure you are present. Thank you!</p>
+                        </div>
+
+                        <div class="card" style="margin-top:1rem; background: rgba(255,255,255,0.95); color:#111;">
+                            <h2>Features</h2>
+                            <ul>
+                                <li>Easy and reliable</li>
+                                <li>Live location verification</li>
+                                <li>Save time at work</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <aside class="card" style="background: rgba(255,255,255,0.95); color:#111;">
+                        <h2><a href="about us.html" style="color:inherit; text-decoration:none;"><span class="text-warning">About Us</span></a></h2>
+                        <p style="margin:0.5rem 0 0;">Learn more about the hospital.</p>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        © <span id="year"></span> Awuni Alfred Mini Project.
+    </footer>
+     <script>
+    function showInfo() {
+      document.getElementById('aboutInfo').style.display = 'block';
+    }
+  </script>
+  <div class="tip" style="background: linear-gradient(90deg, #293346 0%, #cfdef3 100%); border-left: 5px solid #3498db; padding: 16px 20px; border-radius: 6px; box-shadow: 0 2px 6px rgba(52,152,219,0.08); display: flex; align-items: center; gap: 12px; margin-top: 32px; position: fixed; left: 0; bottom: 0; width: 100%; z-index: 1000; justify-content: center; overflow: hidden;">
+    <marquee behavior="scroll" direction="left" scrollamount="6" style="width: 100%; color: #222;">
+      Tip: Use the menu to navigate different sections to make it easy to your destination. Thank you so much for your understanding and support!
+    </marquee>
+  </div>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

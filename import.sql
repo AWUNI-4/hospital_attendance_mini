@@ -1,0 +1,36 @@
+-- Create DB and tables (with location fields)
+CREATE DATABASE IF NOT EXISTS hospital_attendance DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE hospital_attendance;
+
+CREATE TABLE IF NOT EXISTS staff (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  staff_id VARCHAR(50) NOT NULL UNIQUE,
+  firstname VARCHAR(100) NOT NULL,
+  lastname VARCHAR(100) NOT NULL,
+  email VARCHAR(150) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  department VARCHAR(100),
+  phone VARCHAR(20),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS admins (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(100) NOT NULL UNIQUE,
+  fullname VARCHAR(200),
+  email VARCHAR(150) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS attendance (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  staff_id VARCHAR(50) NOT NULL,
+  check_in DATETIME NOT NULL,
+  check_out DATETIME DEFAULT NULL,
+  date DATE NOT NULL,
+  latitude DECIMAL(10,8),
+  longitude DECIMAL(11,8),
+  location_address VARCHAR(255),
+  FOREIGN KEY (staff_id) REFERENCES staff(staff_id) ON DELETE CASCADE
+) ENGINE=InnoDB;
